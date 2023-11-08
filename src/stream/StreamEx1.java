@@ -2,6 +2,7 @@ package stream;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -9,22 +10,16 @@ import java.util.stream.Stream;
 public class StreamEx1 {
     public static void main(String[] args) {
 
-//        Stream<String> strStream = Stream.of("a","b", "c");
-//        Stream<String> strStream1 = Stream.of(new String[]{"a", "b", "c"});
-//        Stream<String> strStream2 = Arrays.stream(new String[]{"a", "b", "c"});
-//
-//        IntStream intStream1 = IntStream.range(2,5);
+//        Stream<String> strStream = Stream.of("ad","bbdf", "cerer");
+//        strStream.sorted(String.CASE_INSENSITIVE_ORDER).forEach(System.out::println);
 
-        IntStream intStream = new Random().ints(4, 100);
-        intStream.limit(100).forEach(System.out::println);
+        Stream<String[]> strArrStm = Stream.of(new String[] {"abcd", "sdf", "gdfg"}
+                                            , new String[] {"hghg","tert", "cvbc"}
+        );
 
+        Stream<Object> objectStream = strArrStm.flatMap(Arrays::stream);
 
-
-
-
-
-
-
+        objectStream.forEach(System.out::println);
 
 
     }
